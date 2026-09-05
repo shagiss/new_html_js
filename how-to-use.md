@@ -39,81 +39,81 @@ There are several properties available. They are:
 `.children(child1, child2, child3, ...)`
 `.child(...)` _(alias)_
 
-    Appending children elements. There is no limit for how much you can add.
-    child elements can be new instances of this object, or HTMLElement.
-    Examples:
+Appending children elements. There is no limit for how much you can add.
+child elements can be new instances of this object, or HTMLElement.
+Examples:
 
-    ```
-    const div = new Html("div");
-    const p = new Html("p");
-    const h1 = new Html("h1");
-    div.child(h1, p);
-    ```
+```
+const div = new Html("div");
+const p = new Html("p");
+const h1 = new Html("h1");
+div.child(h1, p);
+```
 
-    **Note** that the order matters.
+**Note** that the order matters.
 
 `.attributes(json, text, ...)`
 `.attr(...)` _(alias)_
 `.attrs(...)` _(alias)_
 
-    Creates attributes.
+Creates attributes.
 
-    If an attribute is just text (e.g.: `.attributes("readOnly")`), then it treats it as boolean set to 'true' (e.g.: `html.readOnly = true`).
-    If an attribute is JSON, then it takes a `key: value` pair and sets it as it should be.
+If an attribute is just text (e.g.: `.attributes("readOnly")`), then it treats it as boolean set to 'true' (e.g.: `html.readOnly = true`).
+If an attribute is JSON, then it takes a `key: value` pair and sets it as it should be.
 
-    Available options:
-    - All attributes;
-    - `style`/`css`, `aria` and `data`/`dataset`: creates something like: `div.style.yourProperty = yourValue;`, `div.ariaProperty = value`, etc.
+Available options:
+- All attributes;
+- `style`/`css`, `aria` and `data`/`dataset`: creates something like: `div.style.yourProperty = yourValue;`, `div.ariaProperty = value`, etc.
 
 `.parent(element, insertBefore)`
 
-    Appending / inserting before a child element of the parent, to the parent element.
-    Element can be an existing element, such as:
-    ```
-    div.parent(document.body)
-    ```
-    and element can be an instance of Html, like this:
-    ```
-    const parent = new Html("main");
-    div.parent(parent);
-    ```
-    But the last option is not recommended; When it comes to `new Html` instances, prefer the `child` method instead.
+Appending / inserting before a child element of the parent, to the parent element.
+Element can be an existing element, such as:
+```
+div.parent(document.body)
+```
+and element can be an instance of Html, like this:
+```
+const parent = new Html("main");
+div.parent(parent);
+```
+But the last option is not recommended; When it comes to `new Html` instances, prefer the `child` method instead.
 
 `.text(string)`
 
-    Creates text nodes within that element. (like `HTMLElement.innerText = ...`)
+Creates text nodes within that element. (like `HTMLElement.innerText = ...`)
 
 `.outer()`
 `.outerHTML()` _(alias)_
 `.outerHtml()` _(alias)_
 
-    returns the outer html of the element. (returns `string`)
-    for example:
+returns the outer html of the element. (returns `string`)
+for example:
 
-    ```
-    const form = new Html("form");
-    const outerhtml = form.child(...).attrs(...).outer();
-    // Will return: '<form ...>...</form>'
-    ```
+```
+const form = new Html("form");
+const outerhtml = form.child(...).attrs(...).outer();
+// Will return: '<form ...>...</form>'
+```
 
 `.return()`
 `.ref()` _(alias)_
 
-    Returns a reference to the created HTML object. (returns `HTMLElement`)
-    it is useful if you wish to attach events, and do more things.
-    for example:
+Returns a reference to the created HTML object. (returns `HTMLElement`)
+it is useful if you wish to attach events, and do more things.
+for example:
 
-    ```
-    const form = new Html("form");
-    form.child( (new Html("button")).text("Send").attrs({ type: "submit" }) )
-        .return()
-        .addEventListener("submit", function(e) {
-            e.preventDefault();
-            alert("This form is prevented from acting by default behavior!");
-            return false;
-        });
-    form.parent(document.body);
-    ```
+```
+const form = new Html("form");
+form.child( (new Html("button")).text("Send").attrs({ type: "submit" }) )
+    .return()
+    .addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("This form is prevented from acting by default behavior!");
+        return false;
+    });
+form.parent(document.body);
+```
 
 ## 3. Chain properties
 Unless your last property is `.return()` or `.outer()`, you can chain all properties. examples:
