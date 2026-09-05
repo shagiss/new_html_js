@@ -64,7 +64,7 @@ Now you tell me which one you prefer more ;)
 ## How to use?
 For a comprehensive tutorial refer to "how-to-use.md" file in this repository.
 
-Simply `git clone` this repository (or copy the contents of index.js`) and then link to it in your html like this, at the bottom of your `<head>` tag:
+Simply `git clone` this repository (or copy the contents of `index.js`) and then link to it in your html like this, at the bottom of your `<head>` tag:
 ```
     <!-- your head codes goes here -->
     <script src="new_html_js/index.js"></script>
