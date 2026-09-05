@@ -38,6 +38,7 @@ There are several properties available. They are:
 
 `.children(child1, child2, child3, ...)`
 `.child(...)` _(alias)_
+
     Appending children elements. There is no limit for how much you can add.
     child elements can be new instances of this object, or HTMLElement.
     Examples:
@@ -54,6 +55,7 @@ There are several properties available. They are:
 `.attributes(json, text, ...)`
 `.attr(...)` _(alias)_
 `.attrs(...)` _(alias)_
+
     Creates attributes.
 
     If an attribute is just text (e.g.: `.attributes("readOnly")`), then it treats it as boolean set to 'true' (e.g.: `html.readOnly = true`).
@@ -64,6 +66,7 @@ There are several properties available. They are:
     - `style`/`css`, `aria` and `data`/`dataset`: creates something like: `div.style.yourProperty = yourValue;`, `div.ariaProperty = value`, etc.
 
 `.parent(element, insertBefore)`
+
     Appending / inserting before a child element of the parent, to the parent element.
     Element can be an existing element, such as:
     ```
@@ -77,11 +80,13 @@ There are several properties available. They are:
     But the last option is not recommended; When it comes to `new Html` instances, prefer the `child` method instead.
 
 `.text(string)`
+
     Creates text nodes within that element. (like `HTMLElement.innerText = ...`)
 
 `.outer()`
 `.outerHTML()` _(alias)_
 `.outerHtml()` _(alias)_
+
     returns the outer html of the element. (returns `string`)
     for example:
 
@@ -93,6 +98,7 @@ There are several properties available. They are:
 
 `.return()`
 `.ref()` _(alias)_
+
     Returns a reference to the created HTML object. (returns `HTMLElement`)
     it is useful if you wish to attach events, and do more things.
     for example:
