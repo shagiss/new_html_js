@@ -37,6 +37,7 @@ The class "translates" that "math"/"svg" parameter into a `namespaceURI`, which 
 There are several properties available. They are:
 
 `.children(child1, child2, child3, ...)`
+
 `.child(...)` _(alias)_
 
 Appending children elements. There is no limit for how much you can add.
@@ -52,8 +53,11 @@ div.child(h1, p);
 
 **Note** that the order matters.
 
+----
 `.attributes(json, text, ...)`
+
 `.attr(...)` _(alias)_
+
 `.attrs(...)` _(alias)_
 
 Creates attributes.
@@ -65,6 +69,7 @@ Available options:
 - All attributes;
 - `style`/`css`, `aria` and `data`/`dataset`: creates something like: `div.style.yourProperty = yourValue;`, `div.ariaProperty = value`, etc.
 
+----
 `.parent(element, insertBefore)`
 
 Appending / inserting before a child element of the parent, to the parent element.
@@ -79,12 +84,16 @@ div.parent(parent);
 ```
 But the last option is not recommended; When it comes to `new Html` instances, prefer the `child` method instead.
 
+----
 `.text(string)`
 
 Creates text nodes within that element. (like `HTMLElement.innerText = ...`)
 
+----
 `.outer()`
+
 `.outerHTML()` _(alias)_
+
 `.outerHtml()` _(alias)_
 
 returns the outer html of the element. (returns `string`)
@@ -96,7 +105,9 @@ const outerhtml = form.child(...).attrs(...).outer();
 // Will return: '<form ...>...</form>'
 ```
 
+----
 `.return()`
+
 `.ref()` _(alias)_
 
 Returns a reference to the created HTML object. (returns `HTMLElement`)
